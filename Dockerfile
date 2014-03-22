@@ -1,4 +1,3 @@
-#
 # Etherpad-Lite Dockerfile
 #
 # https://github.com/Leibnitius/etherpad-docker
@@ -14,7 +13,6 @@ RUN apt-get install -y gzip git-core curl python libssl-dev pkg-config build-ess
 
 # Grab the latest Git version
 RUN git clone git://github.com/ether/etherpad-lite.git
-RUN cd etherpad-lite
 
 EXPOSE 9001
-ENTRYPOINT bin/run.sh
+ENTRYPOINT root/etherpad-lite/bin/run.sh
