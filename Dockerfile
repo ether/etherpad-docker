@@ -15,4 +15,4 @@ RUN apt-get install -y gzip git-core curl python libssl-dev pkg-config build-ess
 RUN git clone git://github.com/ether/etherpad-lite.git
 
 EXPOSE 9001
-ENTRYPOINT root/etherpad-lite/bin/run.sh
+ENTRYPOINT /root/etherpad-lite/bin/run.sh
