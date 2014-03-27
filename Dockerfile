@@ -12,8 +12,7 @@ RUN apt-get update
 RUN apt-get install -y gzip git-core curl python libssl-dev pkg-config build-essential supervisor
 
 # Grab the latest Git version
-RUN cd /opt
-RUN git clone git://github.com/ether/etherpad-lite.git etherpad
+RUN cd /opt && git clone git://github.com/ether/etherpad-lite.git etherpad
 
 # Install node dependencies
 RUN /opt/etherpad/bin/installDeps.sh
