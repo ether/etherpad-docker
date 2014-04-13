@@ -22,4 +22,4 @@ ADD settings.json /opt/etherpad/settings.json
 ADD supervisor.conf /etc/supervisor/supervisor.conf
 
 EXPOSE 9001
-ENTRYPOINT ["supervisord", "-c", "/etc/supervisor/supervisor.conf", "-n"]
+CMD ["supervisord", "-c", "/etc/supervisor/supervisor.conf", "-n"]
