@@ -20,6 +20,6 @@ To edit the Etherpad settings.json, it is necessary to clone the Git repository:
 
 Then edit the settings.json to your liking and run:
 
-`docker build -t <YOUR_USERNAME>/etherpad-docker`
+`docker build -t <YOUR_USERNAME>/etherpad-docker .`
 
 This image could also be used as a base for Docker Etherpad images integrated with MySQL, etc.
