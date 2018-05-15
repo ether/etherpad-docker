@@ -20,9 +20,7 @@ RUN apt-get update && apt-get install -y \
   pkg-config \
   python \
   supervisor \
-  
   && rm -rf /var/lib/apt/lists/*
-
 
 # Grab the latest Git version
 RUN cd /opt && git clone https://github.com/ether/etherpad-lite.git etherpad
