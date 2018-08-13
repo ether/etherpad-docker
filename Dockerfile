@@ -28,6 +28,9 @@ RUN cd /opt && git clone https://github.com/ether/etherpad-lite.git etherpad
 # Install node dependencies
 RUN /opt/etherpad/bin/installDeps.sh
 
+# Install SQLite3 (deactivated by default, needed for tests)
+RUN npm install -g sqlite3
+
 # Add conf files
 ADD settings.json /opt/etherpad/settings.json
 ADD supervisor.conf /etc/supervisor/supervisor.conf
