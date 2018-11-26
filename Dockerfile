@@ -8,7 +8,7 @@
 
 # Use Docker's nodejs, which is based on debian
 FROM node:latest
-MAINTAINER John E. Arnold, iohannes.eduardus.arnold@gmail.com
+LABEL maintainer="John E. Arnold, iohannes.eduardus.arnold@gmail.com"
 
 # Get Etherpad-lite's other dependencies
 RUN apt-get update && apt-get install -y \
