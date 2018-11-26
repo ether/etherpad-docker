@@ -12,13 +12,7 @@ LABEL maintainer="John E. Arnold, iohannes.eduardus.arnold@gmail.com"
 
 # Get Etherpad-lite's other dependencies
 RUN apt-get update && apt-get install -y \
-  build-essential \
-  curl \
-  gzip \
   git-core \
-  libssl-dev \
-  pkg-config \
-  python \
   supervisor \
   && rm -rf /var/lib/apt/lists/*
 
