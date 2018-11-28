@@ -22,9 +22,13 @@ RUN cd /opt && git clone https://github.com/ether/etherpad-lite.git etherpad
 # Install node dependencies
 RUN /opt/etherpad/bin/installDeps.sh
 
+#mk dir for settins
+RUN mkdir -p /opt/vol/
+
 # Add conf files
 ADD settings.json /opt/etherpad/settings.json
 ADD supervisor.conf /etc/supervisor/supervisor.conf
+ADD start.sh /usr/bin/start.sh
 
 EXPOSE 9001
-CMD ["supervisord", "-c", "/etc/supervisor/supervisor.conf", "-n"]
+CMD ["start.sh"]

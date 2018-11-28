@@ -14,12 +14,9 @@ To run Etherpad on port 80, run:
 
 `docker run -d -p 80:9001 leibnitius/etherpad-docker`
 
-To edit the Etherpad settings.json, it is necessary to clone the Git repository:
+To use your custom Etherpad settings.json, the file has to be located at `/var/config/settings.json`.
+Then  run:
 
-`git clone git://github.com/ether/etherpad-docker.git && cd etherpad-docker`
-
-Then edit the settings.json to your liking and run:
-
-`docker build -t <YOUR_USERNAME>/etherpad-docker .`
+`docker run -d -v /var/config:/opt/vol -p 9001:9001 leibnitius/etherpad-docker`
 
 This image could also be used as a base for Docker Etherpad images integrated with MySQL, etc.
