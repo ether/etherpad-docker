@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
 ADD supervisor.conf /etc/supervisor/supervisor.conf
 
 # grab the latest stable git version
-RUN cd /opt && git clone https://github.com/ether/etherpad-lite.git etherpad
+RUN git clone https://github.com/ether/etherpad-lite.git /opt/etherpad
 
 # install node dependencies for Etherpad
 RUN /opt/etherpad/bin/installDeps.sh
