@@ -16,15 +16,17 @@ RUN apt-get update && apt-get install -y \
   supervisor \
   && rm -rf /var/lib/apt/lists/*
 
+# install supervisor.conf in a low layer of the container
+ADD supervisor.conf /etc/supervisor/supervisor.conf
+
 # grab the latest stable git version
 RUN cd /opt && git clone https://github.com/ether/etherpad-lite.git etherpad
 
 # install node dependencies for Etherpad
 RUN /opt/etherpad/bin/installDeps.sh
 
-# add configuration files
+# add the configuration file
 ADD settings.json /opt/etherpad/settings.json
-ADD supervisor.conf /etc/supervisor/supervisor.conf
 
 EXPOSE 9001
 CMD ["supervisord", "-c", "/etc/supervisor/supervisor.conf", "-n"]
