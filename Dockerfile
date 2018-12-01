@@ -6,23 +6,23 @@
 #
 # Version 1.0
 
-# Use Docker's nodejs, which is based on debian
+# use Docker's nodejs, which is based on debian
 FROM node:latest
 LABEL maintainer="Etherpad team, https://github.com/ether/etherpad-lite"
 
-# Get Etherpad-lite's other dependencies
+# get etherpad's other dependencies
 RUN apt-get update && apt-get install -y \
   git-core \
   supervisor \
   && rm -rf /var/lib/apt/lists/*
 
-# Grab the latest Git version
+# grab the latest stable git version
 RUN cd /opt && git clone https://github.com/ether/etherpad-lite.git etherpad
 
-# Install node dependencies
+# install node dependencies for Etherpad
 RUN /opt/etherpad/bin/installDeps.sh
 
-# Add conf files
+# add configuration files
 ADD settings.json /opt/etherpad/settings.json
 ADD supervisor.conf /etc/supervisor/supervisor.conf
 
